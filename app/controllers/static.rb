@@ -61,5 +61,5 @@ get '/:shortshort' do
   @url.click_count += 1
   @url.save
 
-  redirect "#{@url.long_url}"
+  redirect  "#{@url.long_url}"
 end

@@ -2,9 +2,9 @@
 
 <p><%= @errors if @errors %></p>
 
-<form action="/shorten" method="post">
+<form id = 'create_url' action="/shorten" method="post">
   <!-- params["long_url"] -->
-  <input type="text" name="long_url" placeholder="insert your url here">
+  <input id ='text_input' type="text" name="long_url" placeholder="insert your url here">
   <input type="submit" value="Shorten!">
 </form>
 
@@ -25,7 +25,7 @@
 
     <td>
       <a href="/<%= url.short_url %>/votes">
-        https://pacific-basin-83803.herokuapp.com/<%= url.short_url %>
+        localhost:9393/<%= url.short_url %>
       </a>
     </td>
 

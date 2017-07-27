@@ -13,7 +13,6 @@ get '/:complete' do
       redirect x.long_url
     else
       @urls = Url.all.order("created_at DESC")
-
       erb :"static/index"
     end
   end
@@ -45,7 +44,6 @@ post '/:id/vote' do
 
   #1) find out which url im upvoting
   @url = Url.find(params[:id])
-
   @url.click_count += 1
   @url.save
   redirect '/'
@@ -53,7 +51,7 @@ post '/:id/vote' do
 end
 
 
-get '/:shortshort' do
+get '/:shortshort/votes' do
 #   1)look for this url now
 #   2)increase the click count (bcz i just click on the shortlink)
 #   3)i will redirect to the long url

@@ -1,2 +1,46 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>Bilty Clone</h1>
+
+<p><%= @errors if @errors %></p>
+
+<form action="/shorten" method="post">
+  <!-- params["long_url"] -->
+  <input type="text" name="long_url" placeholder="insert your url here">
+  <input type="submit" value="Shorten!">
+
+
+<table>
+
+  <tr>
+    <th>Long URL</th>
+    <th>Short URL</th>
+    <th>Click count</th>
+  </tr>
+  <% @urls.each do |url| %>
+  <tr>
+    <td>
+      <a href="<%= url.long_url %>">
+        <%= url.long_url %>
+      </a>
+    </td>
+
+    <td>
+      <a href="/<%= url.short_url %>">
+        localhost:9393/<%= url.short_url %>
+      </a>
+    </td>
+
+    <td><%= url.click_count %></td>
+
+    <td>
+    <form action="/<%=url.id%>/vote" method="post">
+      <input type="submit" value="vote">
+    </form>
+    </td>
+
+  </tr>
+<% end %>
+
+
+</table>
+
+</form>
